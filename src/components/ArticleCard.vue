@@ -19,7 +19,7 @@ defineProps<{
       <div class="number">{{ number }}</div>
       <SectionName :title="sectionName" />
       <h2>{{ title }}</h2>
-      <p>{{ description }}</p>
+      <p class="describe">{{ description }}</p>
       <p>Read more</p>
     </div>
     <div class="picture">
@@ -53,6 +53,10 @@ defineProps<{
   position: relative;
   padding-left: 200px;
   z-index: -1;
+}
+
+.describe {
+  padding-top: 20px ;
 }
 
 img {

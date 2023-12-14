@@ -49,3 +49,8 @@ h3 {
 p {
   line-height: 32px;
 }
+
+ul, li {
+  list-style: none;
+  padding: 0;
+}
