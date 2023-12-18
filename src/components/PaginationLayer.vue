@@ -1,55 +1,48 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
+import { scrollToId, scrollToTop } from '../utils/scrollToId'
 
 const step = ref(0)
 
-const scrollToId = (id: string) => {
-  const elementPos = document.getElementById(id)?.offsetTop
-  if (elementPos) {
-    const pos = elementPos - 250
-    window.scroll({
-      top: pos,
-      behavior: 'smooth'
-    })
-  }
-}
-
-const scrollToTop = () => {
-  window.scroll({
-    top: 0,
-    behavior: 'smooth'
-  })
-}
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      switch (entry.target.id) {
-        case 'start':
-          if (step.value !==0) { step.value = 0};
-          break
-        case 'chapter1':
-          if (step.value !==1) { step.value = 1};
-          break
-        case 'chapter2':
-        if (step.value !==2) { step.value = 2};
-          break
-        case 'chapter3':
-        if (step.value !==3) { step.value = 3};
-          break
-        default :
-        step.value = 0
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        switch (entry.target.id) {
+          case 'start':
+            if (step.value !== 0) {
+              step.value = 0
+            }
+            break
+          case 'chapter1':
+            if (step.value !== 1) {
+              step.value = 1
+            }
+            break
+          case 'chapter2':
+            if (step.value !== 2) {
+              step.value = 2
+            }
+            break
+          case 'chapter3':
+            if (step.value !== 3) {
+              step.value = 3
+            }
+            break
+          default:
+            step.value = 0
+        }
       }
-    }
-   })
-} , {threshold : 0.5})
-
+    })
+  },
+  { threshold: 0.5 }
+)
 
 onMounted(() => {
-  ['start','chapter1', 'chapter2', 'chapter3'].forEach(chapterId => {
-    const elem = document.getElementById(chapterId);
-    elem && observer.observe(elem);
-  });
+  ;['start', 'chapter1', 'chapter2', 'chapter3'].forEach((chapterId) => {
+    const elem = document.getElementById(chapterId)
+    elem && observer.observe(elem)
+  })
 })
 </script>
 

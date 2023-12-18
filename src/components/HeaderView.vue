@@ -1,9 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { scrollToTop } from '../utils/scrollToId'
+</script>
 
 <template>
   <header>
     <div class="menu">
-      <h2 class="logo">MNTM</h2>
+      <h2 class="logo" @click="scrollToTop()">MNTM</h2>
       <nav class="navbar">
         <a href="#/">Equipment</a>
         <a href="#/">About us</a>
@@ -23,7 +25,6 @@ header {
   top: 0;
   background: linear-gradient(180deg, rgba(11, 29, 38, 1) 0%, rgba(11, 29, 38, 0) 100%);
   height: 300px;
-
 }
 
 .menu {
@@ -44,6 +45,7 @@ header {
 .logo {
   font-size: 32px;
   letter-spacing: 0.32px;
+  cursor: pointer;
 }
 
 .navbar {
