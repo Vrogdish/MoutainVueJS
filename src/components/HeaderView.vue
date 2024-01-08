@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { scrollToTop } from '../utils/scrollToId'
+// import { scrollToTop } from '@/utils/scrollToId'
 </script>
 
 <template>
   <header>
     <div class="menu">
-      <h2 class="logo" @click="scrollToTop()">MNTM</h2>
+      <h2 class="logo">MNTM</h2>
       <nav class="navbar">
         <a href="#/">Equipment</a>
         <a href="#/">About us</a>
@@ -15,6 +15,10 @@ import { scrollToTop } from '../utils/scrollToId'
         <img src="../assets/cart.svg" alt="login" />
         <div>Account</div>
       </a>
+    </div>
+    <div class="mobile-menu">
+      <h2 class="logo">MNTM</h2>
+      <div class="burger"><span></span><span></span><span></span></div>
     </div>
   </header>
 </template>
@@ -32,14 +36,33 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 60px 80px;
-  /* background: rgb(11, 29, 38); */
+}
+
+.mobile-menu {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 30px;
+}
+
+.burger {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.burger span {
+  display: block;
+  height: 4px;
+  width: 40px;
+  background-color: white;
 }
 
 .mask {
   width: 100%;
   height: 150px;
-  /* background: rgb(11, 29, 38);
-  background: linear-gradient(180deg, rgba(11, 29, 38, 1) 0%, rgba(11, 29, 38, 0) 100%); */
 }
 
 .logo {
@@ -56,5 +79,14 @@ header {
 .login {
   display: flex;
   gap: 10px;
+}
+
+@media (max-width: 1024px) {
+  .menu {
+    display: none;
+  }
+  .mobile-menu {
+    display: flex;
+  }
 }
 </style>

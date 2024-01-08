@@ -1,8 +1,27 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { scrollToId, scrollToTop } from '../utils/scrollToId'
+// import { scrollToId, scrollToTop } from '../utils/scrollToId'
 
 const step = ref(0)
+
+ const scrollToId = (id: string) => {
+    const elementPos = document.getElementById(id)?.offsetTop
+    if (elementPos) {
+      const pos = elementPos - 250
+      window.scroll({
+        top: pos,
+        behavior: 'smooth'
+      })
+    }
+  }
+  
+ const scrollToTop = () => {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+  
 
 const observer = new IntersectionObserver(
   (entries) => {
@@ -129,5 +148,12 @@ onMounted(() => {
 .active {
   opacity: 1;
   transition: all 0.4s ease-in-out;
+
+}
+
+@media (max-width: 1024px) {
+  .layer {
+    display: none;
+  }
 }
 </style>

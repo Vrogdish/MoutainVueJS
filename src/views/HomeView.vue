@@ -55,6 +55,7 @@ import image3 from '@/assets/03.jpg'
   width: 100%;
   height: 100%;
   object-fit: cover;
+  min-height: 1000px;
 } 
 
 .mask {

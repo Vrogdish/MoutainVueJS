@@ -32,11 +32,12 @@
 
 <style scoped>
 footer {
-  height: 280px;
+  /* height: 280px; */
   max-width: 1980px;
   margin: auto;
   padding: 20px;
   display: flex;
+  gap: 20px;
   justify-content: space-between;
 }
 
@@ -49,6 +50,7 @@ footer {
 .copyright {
   opacity: 0.5;
   margin-top: 100px;
+  margin-bottom: 50px;
 }
 
 .links {
@@ -62,5 +64,17 @@ footer {
 
 h3 {
     margin-bottom: 30px;
+}
+
+@media (max-width: 1280px) {
+  footer {
+    flex-direction: column;
+    /* align-items: center; */
+  }
+
+  .links {
+    flex-direction: column;
+    gap: 60px;
+  }
 }
 </style>

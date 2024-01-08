@@ -15,9 +15,9 @@ import SectionName from './SectionName.vue'
 
 <style scoped>
 .hero {
-  width: 960px;
+  max-width: 960px;
   margin: auto;
-  margin-bottom: 400px;
+  margin-bottom: 300px;
   margin-top: 100px;
 }
 h1 {
@@ -40,5 +40,21 @@ h1 {
   to {
     transform: translate(0,-5px);
   }
+}
+
+@media (max-width: 1280px) {
+  .hero {
+    margin-bottom: 150px;
+    margin-top: 0px;
+
+  }
+
+  .hero h1 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 800px) {
+  
 }
 </style>
